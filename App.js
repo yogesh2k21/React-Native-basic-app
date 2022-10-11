@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
   const [products, setProducts] = useState([])
@@ -13,10 +13,16 @@ export default function App() {
 
   const product = (item) => {
     return (
-      <View key={item.id} style={{flex:1}}>
-        <View></View>
-        <View></View>
-        <Text>hello</Text>
+      <View key={item.id} style={{ flex: 1, margin: 10, flexDirection: 'row', backgroundColor: 'yellow', height: 200, width: 400 }}>
+
+        <View style={{ flex: 1, backgroundColor: 'red' }}>
+          <Image source={{ uri: item.image, width: 100, height: 100 }} />
+        </View>
+
+        <View style={{ flex: 1, backgroundColor: 'green' }}>
+          <Image source={{ uri: item.image }} />
+        </View>
+
       </View>
     )
   }
@@ -40,5 +46,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop:27
   },
 });
